@@ -1,0 +1,34 @@
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 48px;
+  padding: 42px;
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.contact-section div {
+  max-width: 740px;
+}
+
+.contact-section p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.contact-section p:last-child {
+  margin-top: 14px;
+}
+
+@media (max-width: 720px) {
+  .contact-section {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 28px;
+  }
+}

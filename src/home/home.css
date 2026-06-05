@@ -1,0 +1,110 @@
+.home-page {
+  --main-bg: #ffdfef;
+  --section-bg: #ffffff;
+  --primary: #aa60c8;
+  --primary-hover: #8f4eb0;
+  --heading: #3a2a45;
+  --body: #555555;
+  --border: #eabde6;
+  --blue: #4b7bf5;
+  --soft: #fff8fc;
+  --soft-blue: #f3f7ff;
+  --shadow: 0 24px 60px rgba(58, 42, 69, 0.12);
+
+  min-height: 100vh;
+  color: var(--body);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.28)),
+    var(--main-bg);
+}
+
+.site-header,
+.hero-section,
+.about-section,
+.content-section,
+.process-section,
+.skills-section,
+.contact-section {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  max-width: 760px;
+  text-align: left;
+}
+
+.centered-heading {
+  max-width: 760px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.section-heading h2,
+.skills-section h2,
+.contact-section h2 {
+  margin: 0;
+  color: var(--heading);
+  font-size: clamp(2rem, 4vw, 3.15rem);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 8px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.primary-button {
+  color: #ffffff;
+  background: var(--primary);
+  box-shadow: 0 18px 36px rgba(170, 96, 200, 0.28);
+}
+
+.primary-button:hover {
+  background: var(--primary-hover);
+}
+
+.secondary-button {
+  color: var(--heading);
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 720px) {
+  .site-header,
+  .hero-section,
+  .about-section,
+  .content-section,
+  .process-section,
+  .skills-section,
+  .contact-section {
+    width: min(100% - 28px, 1140px);
+  }
+
+  .centered-heading {
+    text-align: left;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+}
