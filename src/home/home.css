@@ -1,93 +1,136 @@
-.home-page {
-  --main-bg: #ffdfef;
-  --section-bg: #ffffff;
-  --primary: #aa60c8;
-  --primary-hover: #8f4eb0;
-  --heading: #3a2a45;
-  --body: #555555;
-  --border: #eabde6;
-  --blue: #4b7bf5;
-  --soft: #fff8fc;
-  --soft-blue: #f3f7ff;
-  --shadow: 0 24px 60px rgba(58, 42, 69, 0.12);
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css');
 
+/* ── Design Tokens ── */
+.home-page {
+  --cream: #f7f4ef;
+  --cream-dark: #ede9e1;
+  --cream-border: #d8d2c7;
+  --gold: #b5975a;
+  --gold-light: #d4b47a;
+  --ink: #1c1a16;
+  --ink-mid: #3a3530;
+  --ink-muted: #7a6e5f;
+  --ink-faint: #a09488;
+  --white: #faf9f6;
+  --purple: #aa60c8;
+  --purple-hover: #8f4eb0;
+  --shadow-sm: 0 2px 12px rgba(28, 26, 22, 0.07);
+  --shadow-md: 0 8px 32px rgba(28, 26, 22, 0.10);
+  --shadow-lg: 0 20px 60px rgba(28, 26, 22, 0.13);
+
+  /* Legacy vars referenced by child components */
+  --main-bg: var(--cream);
+  --section-bg: var(--white);
+  --primary: var(--gold);
+  --primary-hover: var(--gold-light);
+  --heading: var(--ink);
+  --body: var(--ink-mid);
+  --border: var(--cream-border);
+  --soft: var(--cream);
+  --soft-blue: var(--cream-dark);
+  --shadow: var(--shadow-lg);
+
+  font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
-  color: var(--body);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.28)),
-    var(--main-bg);
+  color: var(--ink-mid);
+  background: var(--cream);
 }
 
+/* ── Layout container ── */
 .site-header,
 .hero-section,
 .about-section,
 .content-section,
 .process-section,
 .skills-section,
-.contact-section {
-  width: min(1140px, calc(100% - 40px));
+.contact-section,
+.why-hire-section {
+  width: min(1140px, calc(100% - 48px));
   margin: 0 auto;
 }
 
+/* ── Eyebrow ── */
 .eyebrow {
-  margin: 0 0 14px;
-  color: var(--primary);
-  font-size: 0.78rem;
-  font-weight: 850;
-  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 5px 13px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--gold);
+  background: var(--cream-dark);
+  border: 0.5px solid var(--cream-border);
+  border-radius: 100px;
 }
 
-.section-heading {
-  max-width: 760px;
-  text-align: left;
+/* ── Section headings ── */
+.section-heading,
+.centered-heading {
+  max-width: 680px;
+  margin-bottom: 42px;
 }
 
 .centered-heading {
-  max-width: 760px;
-  margin: 0 auto 34px;
+  margin: 0 auto 42px;
   text-align: center;
 }
 
 .section-heading h2,
+.centered-heading h2,
 .skills-section h2,
 .contact-section h2 {
   margin: 0;
-  color: var(--heading);
-  font-size: clamp(2rem, 4vw, 3.15rem);
-  font-weight: 850;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
   line-height: 1.08;
-  letter-spacing: 0;
+  color: var(--ink);
+  letter-spacing: -0.3px;
 }
 
+/* ── Shared buttons ── */
 .primary-button,
 .secondary-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0 22px;
-  border-radius: 8px;
-  font-weight: 850;
+  min-height: 48px;
+  padding: 0 26px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .primary-button {
-  color: #ffffff;
-  background: var(--primary);
-  box-shadow: 0 18px 36px rgba(170, 96, 200, 0.28);
+  color: var(--white);
+  background: var(--ink);
+  border: none;
 }
 
 .primary-button:hover {
-  background: var(--primary-hover);
+  background: var(--ink-mid);
 }
 
 .secondary-button {
-  color: var(--heading);
-  background: var(--section-bg);
-  border: 1px solid var(--border);
+  color: var(--ink-mid);
+  background: transparent;
+  border: 0.5px solid var(--cream-border);
 }
 
+.secondary-button:hover {
+  background: var(--cream-dark);
+  border-color: var(--gold);
+}
+
+/* ── Mobile ── */
 @media (max-width: 720px) {
   .site-header,
   .hero-section,
@@ -95,7 +138,8 @@
   .content-section,
   .process-section,
   .skills-section,
-  .contact-section {
+  .contact-section,
+  .why-hire-section {
     width: min(100% - 28px, 1140px);
   }
 
@@ -106,5 +150,6 @@
   .primary-button,
   .secondary-button {
     width: 100%;
+    justify-content: center;
   }
 }

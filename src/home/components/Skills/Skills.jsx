@@ -1,14 +1,14 @@
 import './Skills.css'
 
 const skills = [
-  'Administrative Support',
-  'Legal Case Management',
-  'Client Relations',
-  'Data Management',
-  'Microsoft Office and Google Workspace',
-  'Computer Literate',
-  'Team Leadership',
-  'Process Improvement',
+  { label: 'Administrative Support', icon: 'ti-files' },
+  { label: 'Legal Case Management', icon: 'ti-gavel' },
+  { label: 'Client Relations', icon: 'ti-users' },
+  { label: 'Data Management', icon: 'ti-database' },
+  { label: 'Microsoft Office', icon: 'ti-brand-windows' },
+  { label: 'Google Workspace', icon: 'ti-brand-google' },
+  { label: 'Team Leadership', icon: 'ti-crown' },
+  { label: 'Process Improvement', icon: 'ti-settings-2' },
 ]
 
 function Skills() {
@@ -20,9 +20,14 @@ function Skills() {
       </div>
 
       <div className="skills-panel">
-        <div className="tool-list" aria-label="Skills">
-          {skills.map((skill) => (
-            <span key={skill}>{skill}</span>
+        <div className="skill-grid" aria-label="Skills">
+          {skills.map(({ label, icon }) => (
+            <div className="skill-chip" key={label}>
+              <span className="skill-chip-icon">
+                <i className={`ti ${icon}`} aria-hidden="true" />
+              </span>
+              <span className="skill-chip-label">{label}</span>
+            </div>
           ))}
         </div>
       </div>

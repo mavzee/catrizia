@@ -5,6 +5,7 @@ import Hero from './components/Hero/Hero.jsx'
 import Process from './components/Process/Process.jsx'
 import Services from './components/Services/Services.jsx'
 import Skills from './components/Skills/Skills.jsx'
+import WhyHire from './components/WhyHire/WhyHire.jsx'
 import './home.css'
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
       <Services />
       <Process />
       <Skills />
+      <WhyHire />
       <Contact />
     </main>
   )

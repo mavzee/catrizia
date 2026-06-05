@@ -1,12 +1,12 @@
 import './WhyHire.css'
 
 const reasons = [
-  'Legal and administrative experience',
-  'Strong communication skills',
-  'Computer literate',
-  'Organized and detail-oriented',
-  'Team leadership experience',
-  'Fast learner and adaptable',
+  { icon: 'ti-briefcase', label: 'Legal and administrative experience' },
+  { icon: 'ti-messages', label: 'Strong communication skills' },
+  { icon: 'ti-device-laptop', label: 'Computer literate' },
+  { icon: 'ti-checklist', label: 'Organized and detail-oriented' },
+  { icon: 'ti-crown', label: 'Team leadership experience' },
+  { icon: 'ti-bolt', label: 'Fast learner and adaptable' },
 ]
 
 function WhyHire() {
@@ -18,10 +18,12 @@ function WhyHire() {
       </div>
 
       <div className="reason-grid">
-        {reasons.map((reason) => (
-          <article className="reason-card" key={reason}>
-            <span aria-hidden="true">✓</span>
-            <h3>{reason}</h3>
+        {reasons.map(({ icon, label }) => (
+          <article className="reason-card" key={label}>
+            <span className="reason-icon">
+              <i className={`ti ${icon}`} aria-hidden="true" />
+            </span>
+            <h3>{label}</h3>
           </article>
         ))}
       </div>
