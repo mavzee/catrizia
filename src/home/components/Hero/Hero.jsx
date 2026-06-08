@@ -10,7 +10,7 @@ const stats = [
 const contacts = [
   { icon: 'ti-map-pin', text: 'Zamboanga City, PH' },
   { icon: 'ti-mail', text: 'your.email@example.com' },
-  { icon: 'ti-phone', text: '+63 XXX XXX XXXX' },
+  { icon: 'ti-phone', text: '09670919465' },
   { icon: 'ti-brand-linkedin', text: 'LinkedIn Profile' },
 ]
 
