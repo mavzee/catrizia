@@ -17,6 +17,9 @@ const contacts = [
 function Hero() {
   return (
     <section className="hero-section" id="top">
+      <div className="hero-bg-orb hero-bg-orb-one" />
+      <div className="hero-bg-orb hero-bg-orb-two" />
+
       <div className="hero-copy">
         <p className="eyebrow">
           <span className="eyebrow-dot" aria-hidden="true" />
@@ -48,8 +51,8 @@ function Hero() {
         </div>
 
         <div className="hero-actions" aria-label="Portfolio actions">
-          <a className="btn-primary" href="#contact">Contact me</a>
-          <a className="btn-secondary" href="#services">View services ↓</a>
+          <a className="btn-primary" href="#contact">Let’s work together</a>
+          <a className="btn-secondary" href="#services">Explore services</a>
         </div>
 
         <dl className="hero-stats" aria-label="Professional highlights">
@@ -66,6 +69,7 @@ function Hero() {
       <div className="hero-portrait-col">
         <div className="portrait-frame">
           <span className="portrait-tag">Available</span>
+
           <div className="portrait-img-area">
             <img
               src={samplePhoto}

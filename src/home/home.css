@@ -3,21 +3,27 @@
 
 /* ── Design Tokens ── */
 .home-page {
-  --cream: #f7f4ef;
-  --cream-dark: #ede9e1;
-  --cream-border: #d8d2c7;
-  --gold: #b5975a;
-  --gold-light: #d4b47a;
-  --ink: #1c1a16;
-  --ink-mid: #3a3530;
-  --ink-muted: #7a6e5f;
-  --ink-faint: #a09488;
-  --white: #faf9f6;
-  --purple: #aa60c8;
-  --purple-hover: #8f4eb0;
-  --shadow-sm: 0 2px 12px rgba(28, 26, 22, 0.07);
-  --shadow-md: 0 8px 32px rgba(28, 26, 22, 0.10);
-  --shadow-lg: 0 20px 60px rgba(28, 26, 22, 0.13);
+  /* New Color Palette */
+  --cream: #FFDFEF;
+  --cream-dark: #FFF5FA;
+  --cream-border: #EABDE6;
+
+  --gold: #AA60C8;
+  --gold-light: #8F4EB0;
+
+  --ink: #3A2A45;
+  --ink-mid: #555555;
+  --ink-muted: #777777;
+  --ink-faint: #999999;
+
+  --white: #FFFFFF;
+
+  --purple: #AA60C8;
+  --purple-hover: #8F4EB0;
+
+  --shadow-sm: 0 2px 12px rgba(58, 42, 69, 0.07);
+  --shadow-md: 0 8px 32px rgba(58, 42, 69, 0.10);
+  --shadow-lg: 0 20px 60px rgba(58, 42, 69, 0.13);
 
   /* Legacy vars referenced by child components */
   --main-bg: var(--cream);
@@ -36,7 +42,6 @@
   color: var(--ink-mid);
   background: var(--cream);
 }
-
 /* ── Layout container ── */
 .site-header,
 .hero-section,
