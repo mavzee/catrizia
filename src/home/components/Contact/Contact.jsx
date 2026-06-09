@@ -29,7 +29,6 @@ function Contact() {
     <span className="eyebrow-dot" aria-hidden="true" />
     Contact
   </p>
-
   <h2 className="contact-title">
     <span>Need Professional Support For Your Legal Workflow?</span>
   </h2>
