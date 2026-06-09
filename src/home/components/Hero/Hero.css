@@ -121,7 +121,8 @@
 .hero-contact-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 32px;
 }
 
@@ -130,51 +131,38 @@
   overflow: hidden;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
+  gap: 8px;
+  padding: 10px 17px;
+  min-height: 34px;
   font-size: 12px;
-  font-weight: 500;
-  color: var(--ink-mid);
-  background: rgba(255, 255, 255, 0.78);
-  border: 0.5px solid var(--cream-border);
-  border-radius: 100px;
+  font-weight: 600;
+  color: #5f5362;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid #dca7dc;
+  border-radius: 999px;
   text-decoration: none;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 8px 24px rgba(42, 35, 28, 0.04);
-  transition: 0.18s ease;
+  box-shadow: 0 6px 18px rgba(143, 64, 143, 0.08);
+  backdrop-filter: blur(10px);
+  transition: 0.22s ease;
 }
 
 .chip::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(190, 150, 80, 0.16), transparent);
-  transform: translateX(-100%);
-  transition: 0.35s ease;
+  content: none;
 }
 
 .chip:hover {
-  transform: translateY(-1px);
-  background: var(--white);
-  border-color: var(--gold);
-}
-
-.chip:hover::before {
-  transform: translateX(100%);
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: #c879d1;
+  box-shadow: 0 10px 24px rgba(143, 64, 143, 0.15);
 }
 
 .chip .ti {
   position: relative;
   z-index: 1;
   font-size: 14px;
-  color: var(--gold);
+  color: #b56ad0;
 }
-
-.chip {
-  position: relative;
-  z-index: 1;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -495,5 +483,160 @@
 
   .portrait-frame::after {
     display: none;
+  }
+}
+/* =========================
+   PREMIUM ANIMATIONS
+========================= */
+
+.hero-copy {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.hero-portrait-col {
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-bg-orb {
+  animation: floatOrb 8s ease-in-out infinite;
+}
+
+.hero-bg-orb-two {
+  animation-delay: 2s;
+}
+
+@keyframes floatOrb {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+/* =========================
+   GLASS EFFECTS
+========================= */
+
+.hero-text {
+  backdrop-filter: blur(10px);
+}
+
+.hero-stats {
+  backdrop-filter: blur(18px);
+}
+
+.chip {
+  backdrop-filter: blur(12px);
+}
+
+/* =========================
+   HOVER EFFECTS
+========================= */
+
+.hero-name {
+  transition: .3s ease;
+}
+
+.hero-name:hover {
+  transform: translateY(-2px);
+}
+
+.portrait-img-area img {
+  transition: .5s ease;
+}
+
+.portrait-frame:hover img {
+  transform: scale(1.05);
+}
+
+.hero-stats:hover {
+  transform: translateY(-3px);
+  transition: .3s ease;
+}
+
+/* =========================
+   GOLD GLOW
+========================= */
+
+.hero-name em {
+  text-shadow:
+    0 0 20px rgba(190,150,80,.2),
+    0 0 40px rgba(190,150,80,.15);
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 20px 45px rgba(42,35,28,.2),
+    0 0 30px rgba(190,150,80,.2);
+}
+
+/* =========================
+   LUXURY BORDER EFFECT
+========================= */
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      rgba(190,150,80,.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(190,150,80,.04) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+  z-index: -4;
+  pointer-events: none;
+}
+
+/* =========================
+   RESPONSIVE IMPROVEMENTS
+========================= */
+
+@media (max-width: 768px) {
+
+  .hero-copy {
+    order: 2;
+  }
+
+  .hero-portrait-col {
+    order: 1;
+    margin: 0 auto 30px;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    flex: 1;
+  }
+
+  .hero-contact-list {
+    gap: 8px;
+  }
+
+  .chip {
+    font-size: 11px;
   }
 }

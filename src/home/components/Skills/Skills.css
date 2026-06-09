@@ -1,71 +1,205 @@
 .skills-section {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
   gap: 56px;
   align-items: start;
-  padding: 88px 0;
+  padding: 96px 0;
   border-top: 0.5px solid var(--cream-border);
+  overflow: hidden;
+}
+
+.skills-bg-accent {
+  position: absolute;
+  right: -120px;
+  bottom: 70px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(190, 150, 80, 0.16), transparent 68%);
+  pointer-events: none;
+  z-index: -1;
+  animation: skillsFloat 7s ease-in-out infinite;
+}
+
+.skills-heading {
+  position: sticky;
+  top: 96px;
+  animation: skillsFadeUp 0.8s ease both;
+}
+
+.skills-heading h2 {
+  margin: 18px 0 16px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+}
+
+.skills-intro {
+  max-width: 350px;
+  margin: 0;
+  padding-left: 18px;
+  border-left: 3px solid rgba(190, 150, 80, 0.42);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-mid);
 }
 
 .skills-panel {
   display: grid;
   gap: 24px;
+  animation: skillsFadeUp 0.9s ease 0.1s both;
 }
 
 .skill-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .skill-chip {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  background: var(--white);
+  gap: 14px;
+  min-height: 78px;
+  padding: 17px 19px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.66)),
+    radial-gradient(circle at top right, rgba(190, 150, 80, 0.12), transparent 40%);
   border: 0.5px solid var(--cream-border);
-  border-radius: 8px;
-  transition: border-color 0.2s, background 0.2s;
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(42, 35, 28, 0.05);
+  backdrop-filter: blur(14px);
+  transition: 0.28s ease;
+  animation: skillsFadeUp 0.7s ease both;
+  animation-delay: var(--delay);
+}
+
+.skill-chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(190, 150, 80, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(190, 150, 80, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0;
+  transition: 0.28s ease;
+  pointer-events: none;
+}
+
+.skill-chip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(190, 150, 80, 0.15),
+    transparent
+  );
+  transform: translateX(-115%);
+  transition: 0.55s ease;
 }
 
 .skill-chip:hover {
-  border-color: var(--gold);
-  background: var(--cream-dark);
+  transform: translateY(-5px);
+  border-color: rgba(190, 150, 80, 0.58);
+  box-shadow: 0 24px 58px rgba(42, 35, 28, 0.09);
+}
+
+.skill-chip:hover::before {
+  opacity: 1;
+}
+
+.skill-chip:hover::after {
+  transform: translateX(115%);
 }
 
 .skill-chip-icon {
+  position: relative;
+  z-index: 2;
   display: inline-grid;
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   place-items: center;
-  background: var(--cream-dark);
+  background: linear-gradient(145deg, var(--cream-dark), var(--white));
   border: 0.5px solid var(--cream-border);
-  border-radius: 7px;
+  border-radius: 15px;
   color: var(--gold);
-  font-size: 16px;
+  font-size: 20px;
+  box-shadow: 0 12px 28px rgba(42, 35, 28, 0.07);
+  transition: 0.25s ease;
+}
+
+.skill-chip:hover .skill-chip-icon {
+  background: var(--gold);
+  color: var(--white);
+  transform: rotate(-5deg) scale(1.06);
 }
 
 .skill-chip-label {
-  font-size: 13px;
-  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--ink);
   line-height: 1.3;
+}
+
+@keyframes skillsFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skillsFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-22px);
+  }
 }
 
 @media (max-width: 980px) {
   .skills-section {
     grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .skills-heading {
+    position: static;
+  }
+
+  .skills-intro {
+    max-width: 620px;
   }
 }
 
 @media (max-width: 720px) {
   .skills-section {
-    padding: 60px 0;
+    padding: 64px 0;
   }
 
   .skill-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skill-chip {
+    min-height: auto;
+    padding: 18px;
   }
 }

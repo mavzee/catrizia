@@ -3,20 +3,20 @@ import './Process.css'
 const steps = [
   {
     number: '01',
-    title: 'Discover',
-    text: 'We define your support needs, preferred tools, and communication rhythm.',
+    title: 'Consultation',
+    text: 'We identify your legal support needs, preferred communication channels, tools, timelines, and administrative priorities.',
     icon: 'ti-search',
   },
   {
     number: '02',
-    title: 'Organize',
-    text: 'I set up clear task lists, files, calendars, and repeatable workflows.',
+    title: 'Workflow Setup',
+    text: 'I organize task lists, documents, calendars, case-related files, and repeatable systems for smoother daily operations.',
     icon: 'ti-layout-list',
   },
   {
     number: '03',
-    title: 'Support',
-    text: 'You get consistent admin help, status updates, and reliable follow-through.',
+    title: 'Ongoing Support',
+    text: 'You receive consistent administrative assistance, progress updates, organized follow-through, and reliable client support.',
     icon: 'ti-shield-check',
   },
 ]
@@ -24,20 +24,37 @@ const steps = [
 function Process() {
   return (
     <section className="process-section" id="process">
-      <div className="section-heading">
-        <p className="eyebrow">Process</p>
-        <h2>A simple way to bring support into your legal workflow.</h2>
+      <div className="process-bg-accent" aria-hidden="true" />
+
+      <div className="section-heading process-heading">
+        <p className="eyebrow">
+          <span className="eyebrow-dot" aria-hidden="true" />
+          Process
+        </p>
+
+        <h2>A structured approach to legal and administrative support.</h2>
+
+        <p className="process-intro">
+          A clear, professional workflow designed to help you delegate tasks
+          efficiently and maintain organized day-to-day operations.
+        </p>
       </div>
 
       <div className="timeline">
-        {steps.map(({ number, title, text, icon }) => (
-          <article className="timeline-step" key={title}>
+        {steps.map(({ number, title, text, icon }, index) => (
+          <article
+            className="timeline-step"
+            key={title}
+            style={{ '--delay': `${index * 0.14}s` }}
+          >
             <div className="timeline-step-header">
               <span className="step-number">{number}</span>
+
               <span className="step-icon">
                 <i className={`ti ${icon}`} aria-hidden="true" />
               </span>
             </div>
+
             <h3>{title}</h3>
             <p>{text}</p>
           </article>

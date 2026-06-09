@@ -37,7 +37,10 @@ function Services() {
   return (
     <section className="content-section" id="services">
       <div className="centered-heading section-heading">
-        <p className="eyebrow">Services</p>
+        <p className="eyebrow">
+          <span className="eyebrow-dot" aria-hidden="true" />
+          Services
+        </p>
         <h2>Administrative and legal support services for busy professionals.</h2>
       </div>
 
