@@ -10,25 +10,24 @@ function About() {
   return (
     <section className="about-section" id="about">
       <div className="section-heading">
-        <p className="eyebrow">About Me</p>
+        
         <h2>Professional Summary</h2>
       </div>
 
       <div className="about-content">
         <div className="about-copy">
           <p>
-            A Political Science graduate from Western Mindanao State University with hands-on
-            experience in legal administration, client communication, case management support, and
-            business operations.
+           I am a highly organized and detail-oriented Virtual Assistant with experience in administrative support,
+           client communication, data management, team coordination, and business operations.
           </p>
           <p>
-            I have worked with U.S.-based law firms, government agencies, and administrative teams,
-            providing support in litigation processes, document management, client relations, and
-            workflow coordination.
+            My professional background includes supporting U.S.-based companies, legal teams, and
+            government offices, where I developed strong skills in document management, customer
+            service, workflow coordination, research, and process improvement.
           </p>
           <p>
-            My goal is to help businesses and professionals stay organized, improve efficiency, and
-            maintain exceptional client service.
+            I am passionate about helping businesses stay organized, improve productivity, and maintain
+            smooth day-to-day operations while providing excellent support to clients and teams.
           </p>
         </div>
 

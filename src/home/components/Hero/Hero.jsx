@@ -24,15 +24,13 @@ function Hero() {
         <div className="hero-role-line">
           <span className="role-divider"></span>
           <p className="hero-role">
-            Legal Assistance · Administrative Support · Client Relations
+            Virtual Assistant  · Administrative Support Specialist · Operations & Client Support
           </p>
         </div>
 
         <p className="hero-text">
-          Delivering dependable legal and administrative support for law firms,
-          entrepreneurs, and professionals. Specializing in document management,
-          client communication, scheduling coordination, and operational
-          assistance with professionalism, discretion, and efficiency.
+          Helping businesses streamline operations, manage administrative tasks,
+           and deliver exceptional client support through reliable and efficient virtual assistance.
         </p>
 
         <div className="hero-contact-list">
