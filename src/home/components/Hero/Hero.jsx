@@ -1,5 +1,4 @@
-import samplePhoto from '../../../assets/sample-va-photo.svg'
-import './Hero.css'
+ import './Hero.css'
 
 const contacts = [
   { icon: 'ti-brand-facebook', text: 'Facebook', href: 'https://facebook.com/yourprofile' },
@@ -66,7 +65,7 @@ function Hero() {
 
           <div className="portrait-img-area">
             <img
-              src={samplePhoto}
+              src="/Guerrero, Ivan S (1).jpg"
               alt="Catrizia Jane Patrimonio Legal Virtual Assistant"
             />
           </div>
