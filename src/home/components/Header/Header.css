@@ -1,16 +1,17 @@
 .site-header {
   position: sticky;
-  top: 0px;
+  top: 0;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 22px;
+  opacity: 0.98;
+  gap: 25px;
   margin: 0 auto;
   padding: 12px 14px;
   background: rgba(255, 255, 255, 0.72);
   border: 0.5px solid rgba(190, 150, 80, 0.22);
-  border-radius: 999px;
+ width:100%!important;
   box-shadow: 0 18px 50px rgba(42, 35, 28, 0.08);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);

@@ -40,7 +40,7 @@ function WhyHire() {
 
       <div className="section-heading centered-heading why-heading">
         <p className="eyebrow">
-          <span className="eyebrow-dot" aria-hidden="true" />
+          <span  aria-hidden="true" />
           Why Hire Me?
         </p>
 

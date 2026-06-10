@@ -19,7 +19,8 @@ function Header() {
         <a href="#process">Process</a>
         <a href="#skills">Skills</a>
         <a href="#why-hire">Why Hire Me</a>
-        <a className="nav-cta" href="#contact">Contact</a>
+        <a href="#contact">Contact </a>
+        <a className="nav-cta" href="#">Resume</a> 
       </nav>
     </header>
   )

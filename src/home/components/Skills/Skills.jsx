@@ -18,7 +18,7 @@ function Skills() {
 
       <div className="skills-heading">
         <p className="eyebrow">
-          <span className="eyebrow-dot" aria-hidden="true" />
+          <span aria-hidden="true" />
           Skills
         </p>
 

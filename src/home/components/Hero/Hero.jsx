@@ -2,10 +2,10 @@ import samplePhoto from '../../../assets/sample-va-photo.svg'
 import './Hero.css'
 
 const contacts = [
-  { icon: 'ti-map-pin', text: 'Zamboanga City, Philippines' },
-  { icon: 'ti-mail', text: 'your.email@example.com' },
-  { icon: 'ti-phone', text: '+63 967 091 9465' },
-  { icon: 'ti-brand-linkedin', text: 'LinkedIn Profile' },
+  { icon: 'ti-map-pin', text: 'Fb' },
+  { icon: 'ti-mail', text: 'IG' },
+  { icon: 'ti-phone', text: 'LinkedIn' },
+  
 ]
 
 function Hero() {

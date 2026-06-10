@@ -158,3 +158,53 @@
     justify-content: center;
   }
 }
+/* Global Scrollbar Styles - For the entire page */
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #eabde6;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #d4a0cf;
+    cursor: pointer;
+}
+
+/* Optional: Corner when both vertical and horizontal scrollbars are present */
+::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #eabde6 #f1f1f1;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Optional: Hide scrollbar for mobile devices while maintaining functionality */
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+}

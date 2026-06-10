@@ -26,7 +26,7 @@ function Contact() {
 
      <div className="contact-content">
   <p className="eyebrow">
-    <span className="eyebrow-dot" aria-hidden="true" />
+    <span  aria-hidden="true" />
     Contact
   </p>
   <h2 className="contact-title">
