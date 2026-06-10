@@ -208,3 +208,43 @@ html {
         height: 6px;
     }
 }
+/* ── Animated background ── */
+.home-page {
+  background: linear-gradient(
+    -45deg,
+    #FFDFEF, #FFF5FA, #f3e8ff, #FFDFEF
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Cursor glow ── */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(170, 96, 200, 0.12), transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: left 0.12s ease, top 0.12s ease;
+  z-index: 0;
+}
