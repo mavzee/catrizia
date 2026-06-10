@@ -20,8 +20,10 @@ function Header() {
         <a href="#skills">Skills</a>
         <a href="#why-hire">Why Hire Me</a>
         <a href="#contact">Contact </a>
-        <a className="nav-cta" href="#">Resume</a> 
-      </nav>
+        <a className="nav-cta" href="/cat-resume.pdf" download="Catrizia_Patrimonio_Resume.pdf">
+          Resume
+        </a> 
+    </nav>
     </header>
   )
 }

@@ -2,10 +2,9 @@ import samplePhoto from '../../../assets/sample-va-photo.svg'
 import './Hero.css'
 
 const contacts = [
-  { icon: 'ti-map-pin', text: 'Fb' },
-  { icon: 'ti-mail', text: 'IG' },
-  { icon: 'ti-phone', text: 'LinkedIn' },
-  
+  { icon: 'ti-brand-facebook', text: 'Facebook', href: 'https://facebook.com/yourprofile' },
+  { icon: 'ti-brand-instagram', text: 'Instagram', href: 'https://instagram.com/yourprofile' },
+  { icon: 'ti-brand-linkedin', text: 'LinkedIn', href: 'https://linkedin.com/in/yourprofile' },
 ]
 
 function Hero() {
@@ -38,12 +37,12 @@ function Hero() {
         </p>
 
         <div className="hero-contact-list">
-          {contacts.map(({ icon, text }) => (
-            <span className="chip" key={text}>
-              <i className={`ti ${icon}`}></i>
-              {text}
-            </span>
-          ))}
+            {contacts.map(({ icon, text, href }) => (
+              <a className="chip" key={text} href={href} target="_blank" rel="noopener noreferrer">
+                <i className={`ti ${icon}`}></i>
+                {text}
+              </a>
+            ))}
         </div>
 
         <div className="hero-actions">
