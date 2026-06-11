@@ -224,7 +224,7 @@ html {
   100% { background-position: 0% 50%; }
 }
 
-/* ── Scroll reveal ── */
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -236,7 +236,6 @@ html {
   transform: translateY(0);
 }
 
-/* ── Cursor glow ── */
 .cursor-glow {
   pointer-events: none;
   position: fixed;
