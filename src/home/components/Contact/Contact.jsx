@@ -48,7 +48,7 @@ function Contact() {
 
     <a
       className="secondary-button"
-      href="https://linkedin.com"
+      href="https://www.linkedin.com/in/catrizia-patrimonio-076022417/"
       target="_blank"
       rel="noreferrer"
     >

@@ -3,7 +3,7 @@
 const contacts = [
   { icon: 'ti-brand-facebook', text: 'Facebook', href: 'https://facebook.com/yourprofile' },
   { icon: 'ti-brand-instagram', text: 'Instagram', href: 'https://instagram.com/yourprofile' },
-  { icon: 'ti-brand-linkedin', text: 'LinkedIn', href: 'https://linkedin.com/in/yourprofile' },
+  { icon: 'ti-brand-linkedin', text: 'LinkedIn', href: 'https://www.linkedin.com/in/catrizia-patrimonio-076022417/' },
 ]
 
 function Hero() {
