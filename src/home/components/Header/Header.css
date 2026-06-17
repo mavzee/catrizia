@@ -241,20 +241,18 @@
   }
 
   .nav-links {
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     gap: 8px;
     margin-top: 0;
-    max-height: 0;
     opacity: 0;
-    overflow: hidden;
     pointer-events: none;
-    transition: max-height 0.28s ease, opacity 0.2s ease, margin-top 0.2s ease;
+    transition: opacity 0.2s ease, margin-top 0.2s ease;
   }
 
   .nav-links.is-open {
+    display: grid;
     margin-top: 14px;
-    max-height: 420px;
     opacity: 1;
     pointer-events: auto;
   }

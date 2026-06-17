@@ -36,7 +36,6 @@
     radial-gradient(circle at 85% 12%, rgba(255, 176, 144, 0.18), transparent 24%),
     linear-gradient(180deg, #fff8ec 0%, #fff1d3 42%, #fff6e6 100%);
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
 }
 
 .home-page[data-theme='dark'] {
@@ -292,16 +291,7 @@
   background: var(--surface-strong);
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+ 
 
 .cursor-glow {
   pointer-events: none;
@@ -321,20 +311,20 @@ html {
   scroll-padding-top: 20px;
 }
 
-::-webkit-scrollbar {
+html::-webkit-scrollbar {
   width: 10px;
 }
 
-::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background: #f3edf8;
 }
 
-::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: rgba(202, 89, 149, 0.42);
   border-radius: 999px;
 }
 
-* {
+html {
   scrollbar-width: thin;
   scrollbar-color: rgba(202, 89, 149, 0.42) #fff6e6;
 }
