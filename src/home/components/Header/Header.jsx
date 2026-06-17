@@ -37,7 +37,7 @@ function Header({ theme, onToggleTheme }) {
 
             <span className="brand-text">
               <strong>Catrizia Patrimonio</strong>
-              <small>Legal Virtual Assistant</small>
+              <small>Virtual Assistant</small>
             </span>
           </a>
         </div>

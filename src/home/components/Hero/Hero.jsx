@@ -64,7 +64,7 @@ function Hero() {
       <div className="hero-showcase">
         <div className="portrait-shell">
           <div className="portrait-frame">
-            <span className="portrait-tag">Available for Projects</span>
+             
 
             <div className="portrait-img-area">
               <img
@@ -76,7 +76,7 @@ function Hero() {
 
           <div className="hero-note-card">
             <span className="hero-note-label">Currently Accepting</span>
-            <strong>Legal & Administrative Support</strong>
+            <strong> Administrative Support</strong>
           </div>
         </div>
 
