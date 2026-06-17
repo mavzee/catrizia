@@ -15,11 +15,20 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   min-width: 320px;
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  touch-action: pan-y;
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button,

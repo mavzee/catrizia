@@ -383,3 +383,9 @@ html {
     height: 220px;
   }
 }
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
+}
