@@ -36,6 +36,7 @@
     radial-gradient(circle at 85% 12%, rgba(255, 176, 144, 0.18), transparent 24%),
     linear-gradient(180deg, #fff8ec 0%, #fff1d3 42%, #fff6e6 100%);
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .home-page[data-theme='dark'] {
@@ -317,6 +318,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
 
 ::-webkit-scrollbar {
@@ -385,7 +387,56 @@ html {
 }
 
 @media (hover: none), (pointer: coarse) {
+  html {
+    scroll-padding-top: 12px;
+  }
+
+  .home-page::before {
+    background-size: 56px 56px;
+  }
+
+  .home-page::after {
+    opacity: 0.68;
+  }
+
   .cursor-glow {
     display: none;
+  }
+
+  .reveal,
+  .primary-button,
+  .secondary-button,
+  .eyebrow,
+  .chip,
+  .service-card,
+  .timeline-step,
+  .skill-group-card,
+  .reason-card,
+  .contact-detail-item,
+  .portrait-frame,
+  .hero-metric-card {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .primary-button,
+  .secondary-button,
+  .eyebrow,
+  .chip,
+  .service-card,
+  .timeline-step,
+  .skill-group-card,
+  .reason-card,
+  .contact-detail-item,
+  .portrait-frame,
+  .hero-metric-card {
+    transition: none !important;
+    animation: none !important;
   }
 }

@@ -19,65 +19,93 @@ function Home() {
   })
 
   useEffect(() => {
-    // ── Cursor glow ──
+    const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     const glow = document.querySelector('.cursor-glow')
     const onMove = (e) => {
-      glow.style.left = e.clientX + 'px'
-      glow.style.top  = e.clientY + 'px'
+      if (!glow) return
+      glow.style.left = `${e.clientX}px`
+      glow.style.top = `${e.clientY}px`
     }
-    window.addEventListener('mousemove', onMove)
 
-    // ── Scroll reveal ──
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible')
-      }),
-      { threshold: 0.12 }
-    )
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    if (!isTouchDevice && !prefersReducedMotion) {
+      window.addEventListener('mousemove', onMove)
+    }
 
-    // ── Particles ──
+    let observer
+    const revealItems = document.querySelectorAll('.reveal')
+
+    if (isTouchDevice || prefersReducedMotion) {
+      revealItems.forEach((el) => el.classList.add('visible'))
+    } else {
+      observer = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          }),
+        { threshold: 0.12 }
+      )
+      revealItems.forEach((el) => observer.observe(el))
+    }
+
     const canvas = document.getElementById('particles')
-    const ctx = canvas.getContext('2d')
-    canvas.width  = window.innerWidth
-    canvas.height = window.innerHeight
-
-    const dots = Array.from({ length: 55 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 2 + 1,
-      dx: (Math.random() - 0.5) * 0.4,
-      dy: (Math.random() - 0.5) * 0.4,
-    }))
-
     let raf
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      dots.forEach(d => {
-        ctx.beginPath()
-        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(202, 89, 149, 0.18)'
-        ctx.fill()
-        d.x += d.dx
-        d.y += d.dy
-        if (d.x < 0 || d.x > canvas.width)  d.dx *= -1
-        if (d.y < 0 || d.y > canvas.height) d.dy *= -1
-      })
-      raf = requestAnimationFrame(draw)
-    }
-    draw()
+    let onResize
 
-    const onResize = () => {
-      canvas.width  = window.innerWidth
-      canvas.height = window.innerHeight
+    if (canvas) {
+      const ctx = canvas.getContext('2d')
+      const particleCount = isTouchDevice ? 18 : 55
+
+      const setCanvasSize = () => {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      }
+
+      setCanvasSize()
+
+      const dots = Array.from({ length: particleCount }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * (isTouchDevice ? 1.6 : 2) + 0.8,
+        dx: (Math.random() - 0.5) * (isTouchDevice ? 0.18 : 0.4),
+        dy: (Math.random() - 0.5) * (isTouchDevice ? 0.18 : 0.4),
+      }))
+
+      const draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        dots.forEach((dot) => {
+          ctx.beginPath()
+          ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2)
+          ctx.fillStyle = 'rgba(202, 89, 149, 0.18)'
+          ctx.fill()
+          dot.x += dot.dx
+          dot.y += dot.dy
+          if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1
+          if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1
+        })
+        raf = requestAnimationFrame(draw)
+      }
+
+      if (!prefersReducedMotion) {
+        draw()
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+      }
+
+      onResize = () => {
+        setCanvasSize()
+      }
+      window.addEventListener('resize', onResize)
     }
-    window.addEventListener('resize', onResize)
 
     return () => {
       window.removeEventListener('mousemove', onMove)
-      window.removeEventListener('resize', onResize)
+      if (onResize) {
+        window.removeEventListener('resize', onResize)
+      }
       cancelAnimationFrame(raf)
-      observer.disconnect()
+      observer?.disconnect()
     }
   }, [])
 
@@ -91,15 +119,15 @@ function Home() {
 
   return (
     <main className="home-page" data-theme={theme}>
-      {/* Particles canvas */}
       <canvas
         id="particles"
         style={{
-          position: 'fixed', inset: 0,
-          pointerEvents: 'none', zIndex: 0
+          position: 'fixed',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 0,
         }}
       />
-      {/* Cursor glow */}
       <div className="cursor-glow" />
 
       <Header theme={theme} onToggleTheme={handleToggleTheme} />
