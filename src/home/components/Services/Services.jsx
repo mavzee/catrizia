@@ -46,10 +46,12 @@ const services = [
 
 function Services() {
   return (
-    <section className="content-section" id="services">
-      <div className="centered-heading section-heading">
+    <section className="content-section services-section" id="services">
+      <div className="services-heading">
          
+
         <h2>Administrative and legal support services for busy professionals.</h2>
+
       </div>
 
       <div className="service-grid">
@@ -59,8 +61,12 @@ function Services() {
               <span className="service-icon">
                 <i className={`ti ${service.icon}`} aria-hidden="true" />
               </span>
-              <h3>{service.category}</h3>
+
+              <div>
+                <h3>{service.category}</h3>
+              </div>
             </div>
+
             <ul className="service-list">
               {service.items.map((item) => (
                 <li key={item}>

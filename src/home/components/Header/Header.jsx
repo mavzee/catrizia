@@ -1,16 +1,22 @@
 import './Header.css'
 
-function Header() {
+function Header({ theme, onToggleTheme }) {
   return (
     <header className="site-header" aria-label="Primary navigation">
-      <a className="brand" href="#top" aria-label="Catrizia Jane T. Patrimonio home">
-        <span className="brand-mark">C</span>
+      
+      <div className="brand-wrap">
+        <a className="brand" href="#top" aria-label="Catrizia Jane T. Patrimonio home">
+          
+          <span className="brand-mark">C</span>
 
-        <span className="brand-text">
-          <strong>Catrizia Patrimonio</strong>
-          <small>Legal Virtual Assistant</small>
-        </span>
-      </a>
+          <span className="brand-text">
+            <strong>Catrizia Patrimonio</strong>
+            <small>Legal Virtual Assistant</small>
+          </span>
+        </a>
+
+        
+      </div>
 
 
       <nav className="nav-links">
@@ -23,7 +29,20 @@ function Header() {
         <a className="nav-cta" href="/cat-resume.pdf" download="Catrizia_Patrimonio_Resume.pdf">
           Resume
         </a> 
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={onToggleTheme}
+          aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+          title={theme === 'light' ? 'Dark mode' : 'Light mode'}
+        >
+          <i
+            className={`ti ${theme === 'light' ? 'ti-moon-stars' : 'ti-sun-high'}`}
+            aria-hidden="true"
+          />
+        </button>
     </nav>
+    
     </header>
   )
 }

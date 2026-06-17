@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import About from './components/About/About.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Header from './components/Header/Header.jsx'
@@ -10,6 +10,14 @@ import WhyHire from './components/WhyHire/WhyHire.jsx'
 import './home.css'
 
 function Home() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 'light'
+    }
+
+    return window.localStorage.getItem('home-theme') || 'light'
+  })
+
   useEffect(() => {
     // ── Cursor glow ──
     const glow = document.querySelector('.cursor-glow')
@@ -48,7 +56,7 @@ function Home() {
       dots.forEach(d => {
         ctx.beginPath()
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(170, 96, 200, 0.18)'
+        ctx.fillStyle = 'rgba(202, 89, 149, 0.18)'
         ctx.fill()
         d.x += d.dx
         d.y += d.dy
@@ -73,8 +81,16 @@ function Home() {
     }
   }, [])
 
+  useEffect(() => {
+    window.localStorage.setItem('home-theme', theme)
+  }, [theme])
+
+  const handleToggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'))
+  }
+
   return (
-    <main className="home-page">
+    <main className="home-page" data-theme={theme}>
       {/* Particles canvas */}
       <canvas
         id="particles"
@@ -86,7 +102,7 @@ function Home() {
       {/* Cursor glow */}
       <div className="cursor-glow" />
 
-      <Header />
+      <Header theme={theme} onToggleTheme={handleToggleTheme} />
       <div className="reveal"><Hero /></div>
       <div className="reveal"><About /></div>
       <div className="reveal"><Services /></div>

@@ -24,13 +24,8 @@ const steps = [
 function Process() {
   return (
     <section className="process-section" id="process">
-      <div className="process-bg-accent" aria-hidden="true" />
-
-      <div className="section-heading process-heading">
-        <p className="eyebrow">
-          <span  aria-hidden="true" />
-          Process
-        </p>
+      <div className="process-heading">
+         
 
         <h2>A structured approach to legal and administrative support.</h2>
 
@@ -41,22 +36,19 @@ function Process() {
       </div>
 
       <div className="timeline">
-        {steps.map(({ number, title, text, icon }, index) => (
-          <article
-            className="timeline-step"
-            key={title}
-            style={{ '--delay': `${index * 0.14}s` }}
-          >
+        {steps.map(({ number, title, text, icon }) => (
+          <article className="timeline-step" key={title}>
             <div className="timeline-step-header">
               <span className="step-number">{number}</span>
-
               <span className="step-icon">
                 <i className={`ti ${icon}`} aria-hidden="true" />
               </span>
             </div>
 
-            <h3>{title}</h3>
-            <p>{text}</p>
+            <div className="timeline-step-body">
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
           </article>
         ))}
       </div>
