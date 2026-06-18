@@ -1,7 +1,5 @@
 import './Contact.css'
 
-const recipientEmail = 'catriziap@gmail.com'
-
 const details = [
   {
     icon: 'ti-map-pin',
@@ -21,63 +19,64 @@ const details = [
   {
     icon: 'ti-mail',
     label: 'Direct Email',
-    value: recipientEmail,
+    value: 'catriziap@gmail.com',
   },
 ]
 
 function Contact() {
+  const nextUrl =
+    typeof window !== 'undefined'
+      ? `${window.location.origin}${window.location.pathname}#contact`
+      : ''
+
   return (
     <section className="contact-section" id="contact">
       <div className="contact-content">
-        
-
         <h2 className="contact-title">
           <span>Need Professional Support For Your Legal Workflow?</span>
         </h2>
 
         <p className="contact-text">
-          Let's discuss how I can help manage legal administration, client
+          Let&apos;s discuss how I can help manage legal administration, client
           communication, document preparation, scheduling, and daily
           operational tasks with professionalism, confidentiality, and
           efficiency.
         </p>
-    <div className="contact-detail-list">
-        {details.map(({ icon, label, value }, index) => (
-          <div
-            className="contact-detail-item"
-            key={label}
-            style={{ '--delay': `${index * 0.12}s` }}
-          >
-            <span className="contact-detail-icon">
-              <i className={`ti ${icon}`} aria-hidden="true" />
-            </span>
 
-            <div>
-              <span className="contact-detail-label">{label}</span>
-              <strong className="contact-detail-value">{value}</strong>
+        <div className="contact-detail-list">
+          {details.map(({ icon, label, value }, index) => (
+            <div
+              className="contact-detail-item"
+              key={label}
+              style={{ '--delay': `${index * 0.12}s` }}
+            >
+              <span className="contact-detail-icon">
+                <i className={`ti ${icon}`} aria-hidden="true" />
+              </span>
+
+              <div>
+                <span className="contact-detail-label">{label}</span>
+                <strong className="contact-detail-value">{value}</strong>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+
         <form
           className="contact-form"
-          action={`https://formsubmit.co/${recipientEmail}`}
+          action="https://formsubmit.co/ivang@hyacinthindustriesllc.com"
           method="POST"
         >
+          <input type="hidden" name="_next" value={nextUrl} />
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input
-            type="hidden"
-            name="_subject"
-            value="New portfolio inquiry from the website"
-          />
+          <input type="hidden" name="_subject" value="New portfolio inquiry" />
 
           <div className="contact-form-header">
             <p className="contact-form-kicker">Send a message</p>
             <h3>Tell me what support you need</h3>
             <p>
-              Share your goals, workload, or timeline and I will review the
-              best way to support your operations.
+              Share your goals, workload, or timeline and the message will be
+              sent from this website straight to her email inbox.
             </p>
           </div>
 
@@ -112,7 +111,7 @@ function Contact() {
               required
             />
           </label>
-    
+
           <div className="contact-actions">
             <button className="primary-button" type="submit">
               <i className="ti ti-send" aria-hidden="true" />
@@ -131,12 +130,11 @@ function Contact() {
           </div>
 
           <p className="contact-form-note">
-            Messages are sent directly to {recipientEmail} through FormSubmit.
+            Messages are submitted through FormSubmit and delivered to
+            {' '}ivang@hyacinthindustriesllc.com.
           </p>
         </form>
       </div>
-
-      
     </section>
   )
 }
