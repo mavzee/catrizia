@@ -1,4 +1,11 @@
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import './Contact.css'
+
+const directEmail = 'ivang@hyacinthindustriesllc.com'
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID ?? ''
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? ''
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY ?? ''
 
 const details = [
   {
@@ -19,15 +26,49 @@ const details = [
   {
     icon: 'ti-mail',
     label: 'Direct Email',
-    value: 'catriziap@gmail.com',
+    value: directEmail,
   },
 ]
 
 function Contact() {
-  const nextUrl =
-    typeof window !== 'undefined'
-      ? `${window.location.origin}${window.location.pathname}#contact`
-      : ''
+  const formRef = useRef(null)
+  const [status, setStatus] = useState({ type: '', message: '' })
+  const [isSending, setIsSending] = useState(false)
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus({
+        type: 'error',
+        message:
+          'EmailJS is not configured yet. Add the EmailJS keys in your env file first.',
+      })
+      return
+    }
+
+    setIsSending(true)
+    setStatus({ type: '', message: '' })
+
+    try {
+      await emailjs.sendForm(serviceId, templateId, formRef.current, {
+        publicKey,
+      })
+
+      formRef.current?.reset()
+      setStatus({
+        type: 'success',
+        message: 'Message sent successfully.',
+      })
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Message failed to send. Please check your EmailJS setup and try again.',
+      })
+    } finally {
+      setIsSending(false)
+    }
+  }
 
   return (
     <section className="contact-section" id="contact">
@@ -62,33 +103,37 @@ function Contact() {
           ))}
         </div>
 
-        <form
-          className="contact-form"
-          action="https://formsubmit.co/ivang@hyacinthindustriesllc.com"
-          method="POST"
-        >
-          <input type="hidden" name="_next" value={nextUrl} />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_subject" value="New portfolio inquiry" />
+        <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
+          <input type="hidden" name="contact_email" value={directEmail} />
 
           <div className="contact-form-header">
             <p className="contact-form-kicker">Send a message</p>
             <h3>Tell me what support you need</h3>
             <p>
               Share your goals, workload, or timeline and the message will be
-              sent from this website straight to her email inbox.
+              sent through EmailJS directly from this website.
             </p>
           </div>
 
           <div className="contact-form-grid">
             <label className="contact-field">
               <span>Name</span>
-              <input type="text" name="name" placeholder="Your full name" required />
+              <input
+                type="text"
+                name="from_name"
+                placeholder="Your full name"
+                required
+              />
             </label>
 
             <label className="contact-field">
               <span>Email</span>
-              <input type="email" name="email" placeholder="you@example.com" required />
+              <input
+                type="email"
+                name="reply_to"
+                placeholder="you@example.com"
+                required
+              />
             </label>
           </div>
 
@@ -113,9 +158,9 @@ function Contact() {
           </label>
 
           <div className="contact-actions">
-            <button className="primary-button" type="submit">
+            <button className="primary-button" type="submit" disabled={isSending}>
               <i className="ti ti-send" aria-hidden="true" />
-              Send Message
+              {isSending ? 'Sending...' : 'Send Message'}
             </button>
 
             <a
@@ -129,9 +174,12 @@ function Contact() {
             </a>
           </div>
 
-          <p className="contact-form-note">
-            Messages are submitted through FormSubmit and delivered to
-            {' '}ivang@hyacinthindustriesllc.com.
+          <p
+            className={`contact-form-note${status.type ? ` is-${status.type}` : ''}`}
+            role="status"
+          >
+            {status.message ||
+              `Messages are sent through EmailJS and delivered to ${directEmail}.`}
           </p>
         </form>
       </div>

@@ -170,11 +170,24 @@
   cursor: pointer;
 }
 
+.contact-actions .primary-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
 .contact-form-note {
   margin: 0;
   font-size: 12px;
   line-height: 1.7;
   color: var(--text-faint);
+}
+
+.contact-form-note.is-success {
+  color: #1d6f42;
+}
+
+.contact-form-note.is-error {
+  color: #b64040;
 }
 
 .contact-detail-list {

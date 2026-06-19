@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import CircularText from '../CircularText/CircularText.jsx'
 import './Header.css'
 
 const navItems = [
@@ -33,7 +34,14 @@ function Header({ theme, onToggleTheme }) {
       <div className="header-top">
         <div className="brand-wrap">
           <a className="brand" href="#top" aria-label="Catrizia Jane T. Patrimonio home" onClick={closeMenu}>
-            <span className="brand-mark">C</span>
+            <div className="brand-mark" aria-hidden="true">
+              <CircularText
+                text="CATRIZIA"
+                spinDuration={18}
+                onHover="speedUp"
+                className="brand-mark-text"
+              />
+            </div>
 
             <span className="brand-text">
               <strong>Catrizia Patrimonio</strong>
