@@ -68,7 +68,7 @@ function Hero() {
 
             <div className="portrait-img-area">
               <img
-                src="/cat.jpg"
+                src="/cat2.jpg"
                 alt="Catrizia Jane Patrimonio Legal Virtual Assistant"
               />
             </div>

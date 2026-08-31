@@ -2,7 +2,7 @@ import './About.css'
 
 const credentials = [
   {
-    title: 'B.S. Political Science',
+    title: 'B.A. Political Science',
     detail: 'Western Mindanao State University',
   },
   {
